@@ -20,7 +20,7 @@ export default class TarefaController{
             res.status(200).json({message: "Tarefa inserida com sucesso", novaTarefa}
             );
         } catch (error) {
-            return 
+            return res.status(500).json({message: "Problema ao inserir uma tarefa", error});
         }
     }//fim do create
 }
