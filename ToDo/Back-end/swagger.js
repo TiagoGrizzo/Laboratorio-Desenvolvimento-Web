@@ -8,5 +8,5 @@ const doc = {
     basepath: '/ToDo',
 }
 const outputFile = './swagger-output.json'; //Nome do arquivo que vai ser gerado automaticamente
-const routesFile = ['./Routes/routes.js'] //Caminho para as rotas
+const routesFile = ['./Routes/routes.js'];//Caminho para as rotas
 swaggerAutongen(outputFile, routesFile, doc);

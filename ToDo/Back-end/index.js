@@ -9,13 +9,13 @@ const swaggerDocument = require("./swagger-output.json");
 //incluir as rotas
 const app = new express();
 //comunicação ente front e back usar json
-app.use(express.json);
+app.use(express.json());
 app.use(cors({
     credential: true,
     origin: "http://localhost:3000"
 }));
-//obrigatoriamente o swagger deve vir antes das rotas (app.use("ToDo", routes))
-app.use("./docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+//obrigatoriamente o swagger deve vir antes das rotas (app.use("ToDo", routes)) Linha 20
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 //ligar o express com as rotas
-app.use("ToDo", routes)
+app.use("/ToDo", routes)
 app.listen(5000) // em qual porta o back-end vai rodar

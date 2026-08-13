@@ -17,8 +17,9 @@ export default class TarefaController{
                 situacao
             });
             const novaTarefa = await tarefa.save();
-            res.status(200).json({message: "Tarefa inserida com sucesso", novaTarefa} //Esse e o de baixo faz a mesma coisa.
+            res.status(200).json({message: "Tarefa inserida com sucesso", novaTarefa} //Esse e o de baixo faz a mesma coisa.      
             );
+            return;
         } catch (error) {
             return res.status(500).json({message: "Problema ao inserir uma tarefa", error}); //Outra forma de fazer, aqui já faz os dois juntos mensagem e return de uma vez só.
         }
@@ -28,7 +29,9 @@ export default class TarefaController{
         try{
             const tarefas = await Tarefa.find();
             return res.status(200).json({message:"Buscar tarefas com sucesso", tarefas});
-        } catch (error) {
+        }
+        catch (error) 
+        {
             return res.status(500).json({message:"Erro ao buscar todas as tarefas", error});
         }
 
