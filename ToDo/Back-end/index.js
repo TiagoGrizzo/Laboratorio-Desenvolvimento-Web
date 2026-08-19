@@ -12,7 +12,7 @@ const app = new express();
 app.use(express.json());
 app.use(cors({
     credential: true,
-    origin: "http://localhost:3000"
+    origin: "http://localhost:5173"
 }));
 //obrigatoriamente o swagger deve vir antes das rotas (app.use("ToDo", routes)) Linha 20
 app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
