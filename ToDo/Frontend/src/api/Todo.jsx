@@ -1,10 +1,10 @@
 import axios from "axios";
 const api = axios.create({
-  baseURL:"http:localhost:5000/ToDo",
+  baseURL:"http://localhost:5000/ToDo",
   headers:{
     "Content-Type": "application/json"
   }  
 })
 export const getTodos=()=>api.get("/getAll");
-export const createTodo=()=>api.post("/create");
+export const createTodo=(payload)=>api.post("/create", payload);
 export default api;
