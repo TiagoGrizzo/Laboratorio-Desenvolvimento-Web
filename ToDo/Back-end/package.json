@@ -1,5 +1,5 @@
 {
-  "name": "back-end",
+  "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,18 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "type": "module",
+  "description": "",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "mongoose": "^9.9.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.4",
+    "nodemailer": "^9.0.5",
     "nodemon": "^3.1.14",
+    "swagger": "^0.7.5",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
   }

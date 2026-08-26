@@ -25,7 +25,7 @@ export default class TarefaController{
         }
     }//fim do create
 
-    static async getAll(req, res){ //Pegar todos os métodos.
+    static async getAll(req, res){ //Pegar todas as tarefas.
         try{
             const tarefas = await Tarefa.find();
             return res.status(200).json({message:"Buscar tarefas com sucesso", tarefas});
