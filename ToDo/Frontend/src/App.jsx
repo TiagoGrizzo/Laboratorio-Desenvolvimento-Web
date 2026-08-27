@@ -9,7 +9,7 @@ export default function App() {
       <header className='max-w-3xl mx-auto mb-6'>
         <nav className='flex items-center justify-between'>
           <h1 className ='text-2xl font-semibold'>
-              <img src={logoTodo} alt="Logo ToDo" className="h-12 w-auto" />
+              <img src={logoTodo} alt="Logo ToDo" className="h-24 w-auto" />
           </h1>
         </nav>
       </header>
