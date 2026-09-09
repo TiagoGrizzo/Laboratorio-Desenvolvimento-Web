@@ -7,7 +7,7 @@ const api = axios.create({
     }
 })
 export const  getTodos=()=>api.get("/getAll");
-export const  createTodo=(payload)=>api.post("/createTarefa", payload);
+export const  createTodo=(payload)=>api.post("/create", payload);
 export const  createUser=(payload)=>api.post("/createUsuario", payload); //criar pag no front
 export const  login=(payload)=>api.post("/login", payload);
 export const  logout=()=>api.post("/logout");
