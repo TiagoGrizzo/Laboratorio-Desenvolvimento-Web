@@ -15,5 +15,6 @@ export const  reset=(payload)=>api.post("/resetPassword", payload); //criar pag 
 export const  forgot=(payload)=>api.post("/forgotPassword", payload);
 export const  getProfile = () => api.get("/me");
 export const  getUsers = () => api.get("/getAllUsers");
-
+export const  getChatTodoHistory = (tarefaId) =>
+    api.get(`/getHistory/${tarefaId}`);
 export default api;
