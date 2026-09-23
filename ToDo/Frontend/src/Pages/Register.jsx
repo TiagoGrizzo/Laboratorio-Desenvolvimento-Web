@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { register } from "../api/Todo.jsx";
+import { createUser } from "../api/Todo.jsx";
 
 export default function Register() {
-  // ---------------------------------------------------------------------------
-  // ESTADOS DO FORMULÁRIO (Controlled Components)
-  // ---------------------------------------------------------------------------
-  // Cada campo de input no HTML está conectado a um destes estados
+
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   
-  // Controla o tempo de resposta da API para desativar os botões (evita cliques múltiplos)
+
   const [loading, setLoading] = useState(false);
   
   // Armazena a mensagem de erro que vem do backend para exibir na tela
@@ -33,7 +30,7 @@ export default function Register() {
 
     try {
       // Dispara a requisição POST /createUsuario passando o objeto no formato esperado pela API
-      await register({ nome, email, senha });
+      await createUser({ nome, email, senha });
       
       // Se não der erro no await, o cadastro foi um sucesso no MongoDB
       alert("Conta criada com sucesso! Faça login para continuar.");

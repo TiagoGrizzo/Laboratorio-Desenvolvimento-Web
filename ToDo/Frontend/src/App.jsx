@@ -5,6 +5,8 @@ import TodoList from "./Pages/TodoList";
 import Login from "./Pages/Login";
 import TodoForm from "./Pages/TodoForm";
 import logoTodo from "./assets/logo-todo.png";
+import Register from "./Pages/Register.jsx";
+import ForgotPassword from "./Pages/ForgotPassword.jsx";
 import { logout, getProfile } from "./api/Todo.jsx";
 
 export default function App() {
@@ -133,7 +135,7 @@ export default function App() {
                     isAuthenticated ? (
                       <Navigate to="/todos" replace />
                     ) : (
-                      <Cadastro />
+                      <Register />
                     )
                   }
                 />
