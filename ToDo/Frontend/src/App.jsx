@@ -5,6 +5,7 @@ import TodoList from "./Pages/TodoList";
 import Login from "./Pages/Login";
 import TodoForm from "./Pages/TodoForm";
 import logoTodo from "./assets/logo-todo.png";
+// 🟢 Apenas os seus 2 componentes importados:
 import Register from "./Pages/Register.jsx";
 import ForgotPassword from "./Pages/ForgotPassword.jsx";
 import { logout, getProfile } from "./api/Todo.jsx";
@@ -129,6 +130,7 @@ export default function App() {
                     )
                   }
                 />
+                {/* 🟢 Rotas adicionadas para o seu projeto: */}
                 <Route
                   path="register"
                   element={
@@ -140,12 +142,12 @@ export default function App() {
                   }
                 />
                 <Route
-                  path="forgot" // O parâmetro na rota (path="reset-password/:token"): É o que avisa o React Router que essa rota exige uma variável dinâmica obrigatória. Sem os dois-pontos (:), o roteador procuraria uma página com o nome literal de :token em vez de aceitar códigos variados.
+                  path="forgot"
                   element={
                     isAuthenticated ? (
-                      <Navigate to="/todos" replace /> // Replace substitui a URL atual no histórico de navegação, em vez de add uma nova entrada 
+                      <Navigate to="/todos" replace />
                     ) : (
-                      <EsqueceuSenha />
+                      <ForgotPassword />
                     )
                   }
                 />
@@ -155,7 +157,7 @@ export default function App() {
                     isAuthenticated ? (
                       <Navigate to="/todos" replace />
                     ) : (
-                      <ResetarSenha />
+                      <ForgotPassword />
                     )
                   }
                 />

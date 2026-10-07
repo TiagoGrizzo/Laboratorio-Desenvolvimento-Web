@@ -18,12 +18,12 @@ const tarefaSchema = new Schema({
         required:true,
     },
     criadoPor:{
-        type:Schema.Types.ObjectId,
-        ref:"Usuario",
-        required:true,
+        type: Schema.Types.ObjectId,
+        ref: "Usuario",
+        required: true,
     },
     participam:[{
-        type:Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref:"Usuario"
     }]
 },{timestamps:true});

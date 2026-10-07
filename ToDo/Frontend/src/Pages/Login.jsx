@@ -76,12 +76,19 @@ export default function Login({ onLoginSuccess }) {
         </button>
       </form>
 
-      <div className="mt-5 text-center pt-2">
+      {/* RODAPÉ COM NAVEGAÇÃO COMPLETA */}
+      <div className="mt-5 flex items-center justify-between text-sm pt-4 border-t border-gray-100">
         <Link
           to="/forgot"
-          className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors"
+          className="text-blue-600 hover:text-blue-800 font-medium transition-colors"
         >
           Esqueci a senha
+        </Link>
+        <Link
+          to="/register"
+          className="text-blue-600 hover:text-blue-800 font-medium transition-colors"
+        >
+          Criar Conta
         </Link>
       </div>
     </div>
