@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "nodenext", 
+    "moduleResolution": "nodenext", //Ajuda a processar os caminhos que colocamos na aplicação
+    "target": "esnext",
+    "types": ["node"],
+    "lib": ["esnext"],
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+  }
+}
