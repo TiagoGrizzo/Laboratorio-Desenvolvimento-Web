@@ -3,8 +3,8 @@ import { autenticacaoToken, autorizacaoPerfil } from "../Middlewares/seguranca.j
 import EcopontoController from '../Controllers/EcopontoController.js';
 
 const routerEcoponto = Router();
-routerEcoponto.post("/createEcoponto", EcopontoController.Create);
-routerEcoponto.get("/ecopontos", EcopontoController.getEcopontos)
+routerEcoponto.post("/createEcoponto", autenticacaoToken, 
+    autorizacaoPerfil("GESTOR"), EcopontoController.Create);
 
 
 export default routerEcoponto;

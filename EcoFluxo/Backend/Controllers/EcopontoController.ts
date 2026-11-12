@@ -1,8 +1,7 @@
-import { error } from "node:console";
 import prisma from "../lib/prisma.js";
 import type {Request, Response} from "express";
 export default class EcopontoController{
-    static async Create(req:Request,res:Response){
+   static async Create(req:Request,res:Response){
         try
          {
             const {nome, latitude, longitude, descricao, cep, logradouro, numero, bairro, cidade, uf, nota} = req.body;
@@ -40,7 +39,7 @@ export default class EcopontoController{
         
     }
     static async getEcopontos(req:Request,res:Response){
-        try {
+         try {
             const ecopontos = await prisma.ecoponto.findMany({
                 include: {lixeiras: true}
             });
