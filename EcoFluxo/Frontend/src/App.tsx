@@ -1,122 +1,50 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import Login from './pages/Login';
+import Ecopontos from './pages/Ecopontos';
+import Lixeiras from './pages/Lixeiras';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+// Componentes temporários ou importados das suas páginas
+function Home() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h1>EcoFluxo - Home</h1>
+      <p>Bem-vindo ao sistema de gestão de ecopontos e lixeiras!</p>
+      <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '20px' }}>
+        <Link to="/login" style={{ padding: '10px 20px', background: '#22c55e', color: '#fff', textDecoration: 'none', borderRadius: '5px' }}>Entrar / Login</Link>
+        <Link to="/ecopontos" style={{ padding: '10px 20px', background: '#3b82f6', color: '#fff', textDecoration: 'none', borderRadius: '5px' }}>Ver Ecopontos</Link>
+        <Link to="/lixeiras" style={{ padding: '10px 20px', background: '#10b981', color: '#fff', textDecoration: 'none', borderRadius: '5px' }}>Ver Lixeiras</Link>
+      </div>
+    </div>
+  );
 }
 
-export default App
+function EcopontosPage() {
+  return <div style={{ padding: '20px' }}><h2>Gerenciamento de Ecopontos (Listagem e Cadastro)</h2></div>;
+}
+
+function LixeirasPage() {
+  return <div style={{ padding: '20px' }}><h2>Gerenciamento de Lixeiras (Listagem e Cadastro)</h2></div>;
+}
+
+function App() {
+  return (
+    <Router>
+      <nav style={{ background: '#1f2937', padding: '15px', color: '#fff', display: 'flex', gap: '20px' }}>
+        <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>Início</Link>
+        <Link to="/login" style={{ color: '#fff', textDecoration: 'none' }}>Login</Link>
+        <Link to="/ecopontos" style={{ color: '#fff', textDecoration: 'none' }}>Ecopontos</Link>
+        <Link to="/lixeiras" style={{ color: '#fff', textDecoration: 'none' }}>Lixeiras</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/ecopontos" element={<Ecopontos />} />
+        <Route path="/lixeiras" element={<Lixeiras />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

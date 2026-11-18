@@ -66,10 +66,10 @@ export default class UsuarioController{
     };
     static async Logout(req:Request,res:Response){
           
-        res.clearCookie("token", {
+        res.clearCookie("jwt", {
             httpOnly: true,
-            secure: true,
-            sameSite: 'none'
+            secure: false,
+            sameSite: 'lax'
         });
         return res.status(200).json({ message: "Logout com sucesso" });
         
@@ -99,7 +99,7 @@ export default class UsuarioController{
                 return res.status(400).json({ message: "Código de verificação incorreto." });
             }
 
-            // CÓDIGO VÁLIDO! Limpamos o código do banco para não ser reutilizado
+            // Com codigo valido limpamos o código do banco para não ser reutilizado
             await prisma.usuario.update({
                 where: { id: usuario.id },
                 data: {
@@ -108,21 +108,21 @@ export default class UsuarioController{
                 }
             });
 
-            // AGORA SIM: Geramos o token JWT definitivo de acesso
+            //Geramos o token JWT definitivo de acesso
             const tokenPayload = {
                 id: usuario.id,
                 nome: usuario.nome,
                 email: usuario.email,
-                role: usuario.perfil
+                perfil: usuario.perfil
             };
             
             const token = jwt.sign(tokenPayload, JWT_SECRET, { expiresIn: "1h" });
             
             // Salva nos cookies igual você já tinha estruturado perfeitamente
-            res.cookie("token", token, {
+            res.cookie("jwt", token, {
                 httpOnly: true,
-                secure: true,
-                sameSite: 'none',
+                secure: false,
+                sameSite: 'lax',
                 maxAge: 3600000 // 1 hora
             });
 
